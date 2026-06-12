@@ -21,7 +21,7 @@ A production-grade visual data pipeline orchestration platform. Pipelines are bu
 
 ---
 
-### Attachment Assessment System
+### Attachment Assessment System (AttachIQ)
 A cloud platform to digitise industrial attachment (internship) assessments for Kenyan TVET colleges and polytechnics. Currently in pre-build phase — system design is complete, a 16-table schema aligned with Kenya's CBET curriculum model is built, and the multi-tenant architecture is defined before application code begins.
 
 **Stack:** Next.js 15 · Express · TypeScript · Prisma · PostgreSQL · Cloudinary
@@ -60,4 +60,4 @@ Backend engineering and system architecture. I want to understand systems well e
 
 ## Reach Me
 
-arthurmulunda461@gmail.com
+arthurmulunda41@gmail.com
