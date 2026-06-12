@@ -1,6 +1,6 @@
 # Arthur Mulunda
 
-Software Engineer based in Nairobi, Kenya. Third-year Computer Science student at The Kiambu Institute of Science and Technology, building production-grade systems and developing a strong bias toward backend engineering and system architecture.
+Software engineer based in Nairobi, Kenya. Third-year Computer Science student at The Kiambu Institute of Science and Technology, building production-grade systems and developing a strong bias toward backend engineering and system architecture.
 
 I care about understanding how systems work before writing code — schema design, data flow, failure handling — not just making things run.
 
@@ -27,11 +27,11 @@ I care about understanding how systems work before writing code — schema desig
 
 | Component | Role | What it does |
 |---|---|---|
-| Pipeline Canvas | Visual editor | Xyflow-based drag-and-drop DAG builder — define steps and dependencies without writing code |
-| API Server | Core backend | Express + TypeScript REST API — pipeline CRUD, run triggers, auth |
-| Job Queue & Workers | Execution engine | BullMQ + Redis — topological execution order, retries with exponential backoff, dead-letter handling |
-| Real-Time Layer | Live monitoring | WebSocket server + Redis pub/sub — step status pushed to the canvas within milliseconds |
-| AI Debug Assistant | Failure diagnosis | Claude API reads step config, error, and run history — returns a plain-English diagnosis and fix |
+| **Pipeline Canvas** | Visual editor | Xyflow-based drag-and-drop DAG builder — define steps and dependencies without writing code |
+| **API Server** | Core backend | Express + TypeScript REST API — pipeline CRUD, run triggers, auth |
+| **Job Queue & Workers** | Execution engine | BullMQ + Redis — topological execution order, retries with exponential backoff, dead-letter handling |
+| **Real-Time Layer** | Live monitoring | WebSocket server + Redis pub/sub — step status pushed to the canvas within milliseconds |
+| **AI Debug Assistant** | Failure diagnosis | Claude API reads step config, error, and run history — returns a plain-English diagnosis and fix |
 
 **Tech stack:** Node.js · Express · TypeScript (strict) · BullMQ · Redis · WebSockets (`ws`) · PostgreSQL 16 · Next.js 14 (App Router) · Tailwind CSS · Xyflow · Auth.js (GitHub OAuth) + JWT · Anthropic Claude API · Docker Compose · GitHub Actions → Railway + Vercel
 
@@ -69,10 +69,10 @@ Pipeline Canvas (Xyflow) → API Server (Express) → BullMQ (Redis-backed)
 
 | Agent | Role | What it does |
 |---|---|---|
-| StudentIQ | Student coach | Tracks competency gaps, guides evidence submission, drafts messages to supervisors |
-| SupervisorIQ | Supervisor guide | Walks non-educator supervisors through CBET assessment conversationally — no rubrics, no jargon |
-| CoordIQ | Coordinator intelligence | Surfaces at-risk students, flags coverage gaps, generates batch reports on demand |
-| AttachIQ Core | Orchestrator | Routes incoming requests and coordinates cross-agent workflows |
+| **StudentIQ** | Student coach | Tracks competency gaps, guides evidence submission, drafts messages to supervisors |
+| **SupervisorIQ** | Supervisor guide | Walks non-educator supervisors through CBET assessment conversationally — no rubrics, no jargon |
+| **CoordIQ** | Coordinator intelligence | Surfaces at-risk students, flags coverage gaps, generates batch reports on demand |
+| **AttachIQ Core** | Orchestrator | Routes incoming requests and coordinates cross-agent workflows |
 
 **Tech stack:** Next.js 15 (App Router) · TypeScript · shadcn/ui · Python FastAPI · Pydantic v2 · SQLAlchemy 2.0 (async) · Google Agent Development Kit (ADK) · Gemini 2.0 Flash · PostgreSQL 16 (16-table, multi-tenant schema) · Cloudinary · JWT (access + refresh rotation) · Vercel + Google Cloud Run + Railway · GitHub Actions → Docker → Cloud Run
 
@@ -88,28 +88,30 @@ Client (Next.js) → FastAPI → ADK Orchestrator → [StudentIQ | SupervisorIQ 
 
 ---
 
-### Copy Cat Job Card System ✓ Completed
+### Copycat Group — Field Service Management Platform ✓ Completed
 
-A field operations management platform built and deployed for Copy Cat Group. Supervisors manage the full job lifecycle while technicians update job status from the field through a role-gated interface.
+A full-stack field operations platform I built solo during my internship at Copycat Group — a multi-tenant job card system for managing photocopier technician dispatch, customer invoicing, and payments. The company had been tracking jobs on paper; I replaced that end-to-end, making all day-to-day implementation and architectural decisions and presenting progress to my supervisor for review and direction.
 
-- Five security layers: authentication, route-level authorisation, role-based data access, input validation, and rate limiting
-- M-Pesa Daraja API (STK Push) integration — payment collection triggered directly from the job card on completion, with state tracked in the database
-- Auto-generated PDF reports per job card for record-keeping and customer handover
-- Monitoring dashboard (Python · FastAPI) tracking API health, database performance, M-Pesa transaction states, and user activity — with email alerts and exportable reports
+**Stack:** React + Vite · Node.js · Express · PostgreSQL · Docker · Nginx · Python · FastAPI
 
-**Stack:** Node.js · Express · PostgreSQL · React · Tailwind CSS · Python · FastAPI
+- JWT authentication with HTTP-only cookies; role-based dashboards for supervisors and field technicians
+- M-Pesa Daraja API (STK Push) integration — OAuth token generation, payload construction, sandbox-verified via cURL and Postman, transaction state tracked in the database
+- Paystack hosted checkout with webhook signature verification
+- Auto-generated PDF reports per job card for record-keeping and customer handover; email delivery
+- Python/FastAPI monitoring service — WebSocket live updates for Docker container health, API latency, database metrics, M-Pesa transaction states, and user activity, with email alerts and exportable reports
+- Learned Python entirely through building the monitoring service as part of this project
 
 ---
 
 ## Tech Stack
 
-**Languages:** TypeScript · JavaScript · Python · SQL
-**Frontend:** React · Next.js 15 · Tailwind CSS · shadcn/ui · Xyflow
-**Backend:** Node.js · Express · FastAPI · Pydantic v2 · SQLAlchemy 2.0
-**AI/Agents:** Anthropic Claude API · Google Agent Development Kit (ADK) · Gemini 2.0 Flash
-**Databases:** PostgreSQL · Redis · Prisma ORM
-**Infrastructure:** Docker · BullMQ · WebSockets · Cloudinary · GitHub Actions · Railway · Vercel · Google Cloud Run
-**Integrations:** M-Pesa Daraja API · Anthropic Claude API · Google ADK
+**Languages:** TypeScript · JavaScript · Python · SQL  
+**Frontend:** React · Next.js 15 · Tailwind CSS · shadcn/ui · Xyflow  
+**Backend:** Node.js · Express · FastAPI · Pydantic v2 · SQLAlchemy 2.0  
+**AI / Agents:** Anthropic Claude API · Google Agent Development Kit (ADK) · Gemini 2.0 Flash  
+**Databases:** PostgreSQL · Redis · Prisma ORM  
+**Infrastructure:** Docker · Nginx · BullMQ · WebSockets · Cloudinary · GitHub Actions · Railway · Vercel · Google Cloud Run  
+**Integrations:** M-Pesa Daraja API · Paystack · Anthropic Claude API · Google ADK  
 **Tools:** Git · Postman · Linux (Ubuntu)
 
 ---
